@@ -1,7 +1,7 @@
+FROM debian:9.5-slim
 
-FROM tomcat:9.0-alpine
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY sample.war
 
-ADD Mywebapp\target\MavenWebProject\MavenWebProject.WAR
-EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
+# Executes `entrypoint.sh` when the Docker container starts up
+ENTRYPOINT ["/entrypoint.sh"]
