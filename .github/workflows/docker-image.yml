@@ -18,5 +18,5 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
     - name: Docker push
-      run: docker push shreya1605/myrepo
+      run: docker push shreya1605/myrepo:debian:9.5-slim
 
