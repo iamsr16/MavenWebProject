@@ -20,7 +20,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         password: ${{ secrets.DOCKER_PASSWORD }}
-        run: docker push shreya1605/myrepo:debian:latest
+        run: docker run debian:9.5-slim
         repository: shreya1605/myrepo
         dockerfile: Dockerfile
         tags: latest
