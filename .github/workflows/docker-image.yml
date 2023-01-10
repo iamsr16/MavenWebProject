@@ -1,4 +1,3 @@
-
 name: Docker Image CI
 
 on:
@@ -8,21 +7,12 @@ on:
     branches: [ "main" ]
 
 jobs:
-      
-  build-and-deploy:
-    name: Build and Deploy 
+
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        run: docker run debian:9.5-slim
-        repository: shreya1605/myrepo
-        dockerfile: Dockerfile
-        tags: latest
-        
-
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag debian:9.5-slim:latest shreya1605/myrepo:latest
