@@ -14,11 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: shreya1605/myrepo
-        dockerfile: Dockerfile
-        tags: latest
     - name: Build the Docker image
-      run: docker build debian:9.5-slim:latest 
+      run: docker build. --file Dockerfile 
    
